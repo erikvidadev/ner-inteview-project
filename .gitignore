@@ -1,0 +1,7 @@
+.ve/
+__pycache__/
+.idea/
+*.iml
+.cache/
+.env
+.DS_Store
