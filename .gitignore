@@ -1,7 +1,80 @@
+# Virtual environments
+
 .ve/
-__pycache__/
+venv/
+env/
+.venv/
+
+# Python cache
+
+**pycache**/
+*.py[cod]
+*$py.class
+
+# IDE files
+
 .idea/
 *.iml
-.cache/
-.env
+.vscode/
+
+# System files
+
 .DS_Store
+Thumbs.db
+
+# Environment variables
+
+.env
+.env.*
+
+# Python packaging
+
+build/
+dist/
+*.egg-info/
+
+# Poetry
+
+poetry.lock
+
+# Cache
+
+.cache/
+.pytest_cache/
+.mypy_cache/
+
+# Jupyter
+
+.ipynb_checkpoints/
+
+# Machine Learning artifacts
+
+outputs/
+checkpoints/
+models/
+runs/
+
+# Large datasets
+
+data/
+
+# Logs
+
+*.log
+logs/
+
+# HuggingFace / Transformers cache
+
+.huggingface/
+transformers_cache/
+
+# PyTorch / training artifacts
+
+*.pt
+*.pth
+*.bin
+
+# Mac temporary
+
+.AppleDouble
+.LSOverride

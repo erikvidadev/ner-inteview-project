@@ -104,3 +104,24 @@ Output:
 {'entity_group': 'ORG', 'score': 0.972469, 'word': 'X', 'start': 43, 'end': 44}]
 ```
 
+## Visualizaton: 
+#### Loss - This graph shows the "development" of the model.
+![loss_curve.png](plots/loss_curve.png)
+It is vissible, that the training loss drops sharply at the beginning,
+then stabilizes below 0.25 after 500 steps. This means that the model quickly learned the basic patterns.
+There is a spike around step 3000, it can be a more difficult batch or training speed changed, 
+but the model corrected itself immediately. 
+
+#### Entity Performance - shows the accuracy of the model is in each category.
+![entity_performance.png](plots/entity_performance.png)
+
+- test_PER (0.96): Almost perfect. It recognizes personal names with confidence.
+- test_LOC (0.94): Also excellent.
+- test_MISC (0.83): This is the weakest link. 
+This is understandable, as the "Miscellaneous" category is the most confusing (everything that is not a person, place, or organization).
+
+#### Confusion Matrix - what it mixes with what.
+![confusion_matrix.png](plots/confusion_matrix.png)
+- The main axis (dark blue): Brutally strong. Most values are above 0.9.
+- Error analysis: I-MISC row has a value of 0.15 in the "O" (Outside) column. 
+This means that it considers 15% of the interior of MISC entities to be plain text.

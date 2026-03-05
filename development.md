@@ -1,22 +1,38 @@
-# Instructions
+# Development Guide
 
-### Create virtual environment 
-It is recommended to use Python3.12, since python3.13 is too new for some of the libraries. 
-```
-python3.12 -m venv .ve
-. .ve/bin/activate
+This project follows modern Python packaging standards using **Poetry** for dependency management and deterministic environment builds.
+
+### Prerequisites
+- **Python 3.12**: Recommended for optimal library compatibility.
+- **Poetry**: Ensure you have Poetry installed (`pip install poetry`, 
+`brew install poetry`).
+
+---
+
+### Environment Setup
+
+Poetry handles virtual environment creation and dependency resolution in one step.
+
+```bash
+# 1. Install all dependencies
+poetry env use python3.12
+poetry install
+
+# 2. Activate the virtual environment
+poetry shell
 ```
 
-### Install Requirements.txt 
+### Run
+```bash
+# Running the Pipeline
+poetry run python main.py
 ```
-pip install --upgrade pip
-pip install -r requirements.txt
-```
-- Apple Silicon (M1/M2/M3): No extra steps needed. The DeviceManager will automatically use the MPS backend.
-- NVIDIA GPU: Ensure you have the appropriate CUDA Toolkit installed (11.8 or 12.1 is recommended).
-- CPU Only: The code will default to CPU if no accelerator is found.
 
-### Test & Run
-```
-python main.py / run main.py file
+### Code Quality
+```bash
+# Check for linting issues
+poetry run ruff check .
+
+# Automatically fix formatting
+poetry run ruff format .
 ```
